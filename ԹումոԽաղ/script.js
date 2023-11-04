@@ -1,4 +1,4 @@
-function matrixGenerator(matrixSize, grassCount, grassEaterCount, predatorCount,pashtpanCount,tntCount,akanazercCount) {
+function matrixGenerator(matrixSize, grassCount, grassEaterCount, predatorCount,pashtpanCount,) {
         let matrix = [];
         for (let i = 0; i < matrixSize; i++) {
                 matrix.push([]);
@@ -45,23 +45,14 @@ function matrixGenerator(matrixSize, grassCount, grassEaterCount, predatorCount,
                         matrix[y][x] = 4
                 }
         }
-        for (let i = 0; i < tntCount; i++) {
-                let x = Math.floor(Math.random() * matrixSize)
-                let y = Math.floor(Math.random() * matrixSize)
-                matrix[y][x] = 5}
-
-
-                for (let i = 0; i <akanazercCount; i++) {
-                        let x = Math.floor(Math.random() * matrixSize)
-                        let y = Math.floor(Math.random() * matrixSize)
-                        matrix[y][x] = 6}
+       
 
 
         return matrix;
 }
 
 
-let matrix = matrixGenerator(44, 70, 8, 8,8,1,2);
+let matrix = matrixGenerator(44, 70, 8, 8,8,);
 let side = 15;
 
 ///creature arrays
@@ -69,8 +60,7 @@ let grassArray = [];
 let grassEaterArr = [];
 let predatorArr = [];
 let pashtpanArr = [];
-let tntArr = [];
-let akanazercArr = [];
+
 
 function setup() {
         frameRate(16);
@@ -92,13 +82,7 @@ function setup() {
                                 let pasht = new Pashtpan(x,y);
                                 pashtpanArr.push(pasht);
                         }
-                        else if(matrix[y][x] == 5){
-                                let t = new Tnt(x,y)
-                                tntArr.push(t) }
-                        else if (matrix[y][x] == 6){
-                                let akan = new Akanazerc(x,y)
-                                akanazercArr.push(akan)}
-        
+                       
 
 
 
@@ -110,21 +94,15 @@ function draw() {
         for (let y = 0; y < matrix.length; y++) {
                 for (let x = 0; x < matrix[y].length; x++) {
                         if (matrix[y][x] == 1) {
-                                fill("green")
+                                fill("#00FF00")
                         } else if (matrix[y][x] == 2) {
-                                fill("yellow")
+                                fill("#FFFF00")
                         }else if(matrix[y][x] == 3){
-                                fill ('red')
+                                fill (' #FF0000')
                         }else if(matrix[y][x] == 4){
                                 fill ('white')
                         }
-
-                        else if(matrix[y][x] == 5){
-                                fill ('Black')
-                        }
-                        else if(matrix[y][x] == 6){
-                                fill ('orange')
-                        }
+                        
                         else {
                                 fill("blue")
                         }
@@ -146,19 +124,8 @@ function draw() {
         for(let i in pashtpanArr){
                 pashtpanArr[i].eat();
         }
-        for(let i in akanazercArr){
-                akanazercArr[i].akanazerc();
-
-        }
+     
         
-        for(let i in tntArr){
-                setTimeout(()=>{
-                        if(tntArr.length == 1){
-                                tntArr[i].mul()
-
-                        }
-                }, 1000)
-        }
 
 }
 
