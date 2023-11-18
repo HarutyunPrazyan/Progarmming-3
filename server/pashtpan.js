@@ -1,11 +1,13 @@
 let LivingCreature = require('./LivingCreature')
-module.exports = class Pashtpan extends LivingCreature{    
+module.exports = class Pashtpan extends LivingCreature {
     constructor(x, y) {
-        this.x = x;
-        this.y = y;
+        super(x, y,);
         this.energy = 10;
+    } chooseCell(character) {
+        this.getNewCoordinates();
+        return super.chooseCell(character);
     }
-    
+
 
     mul() {
 
@@ -25,7 +27,7 @@ module.exports = class Pashtpan extends LivingCreature{
     }
 
     eat() {
-        let foods = this.chooseCell(2,3)
+        let foods = this.chooseCell(2, 3)
         let food = random(foods)
 
         if (food) {
@@ -93,10 +95,11 @@ module.exports = class Pashtpan extends LivingCreature{
         matrix[this.y][this.x] = 0;
 
         for (let i in pashtpanArr) {
-            if (this.x ==pashtpanArr[i].x && this.y == pashtpanArr[i].y) {
+            if (this.x == pashtpanArr[i].x && this.y == pashtpanArr[i].y) {
                 pashtpanArr.splice(i, 1);
                 break;
             }
         }
     }
+
 }
