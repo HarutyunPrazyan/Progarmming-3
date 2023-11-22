@@ -67,7 +67,7 @@ function matrixGenerator(matrixSize, grassCount, grassEaterCount, predatorCount,
 }
 
 
-matrix = matrixGenerator(44, 70, 8, 8, 8,);
+matrix = matrixGenerator(20,20, 8, 8, 8,);
 io.sockets.emit('send matrix', matrix)
 
 grassArray = [];

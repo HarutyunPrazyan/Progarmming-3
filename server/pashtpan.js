@@ -3,17 +3,29 @@ module.exports = class Pashtpan extends LivingCreature {
     constructor(x, y) {
         super(x, y,);
         this.energy = 10;
-    } chooseCell(character) {
-        this.getNewCoordinates();
-        return super.chooseCell(character);
-    }
+    } 
+	chooseCell(character) {
+		this.getNewCoordinates() 
+            this.directions = [
+            [this.x - 1, this.y - 1],
+            [this.x, this.y - 1],
+            [this.x + 1, this.y - 1],
+            [this.x - 1, this.y],
+            [this.x + 1, this.y],
+            [this.x - 1, this.y + 1],
+            [this.x, this.y + 1],
+            [this.x + 1, this.y + 1]
+            ];
+            
+            return super.chooseCell(character);
+	}
 
 
-    mul() {
-
-        let emptyCells = this.chooseCell(0)
-        let newCell = random(emptyCells)
-
+    
+        mul() {
+            var emptyCells = super.chooseCell(0);
+            var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
+        
         if (newCell) {
             let newX = newCell[0]
             let newY = newCell[1]
@@ -27,10 +39,10 @@ module.exports = class Pashtpan extends LivingCreature {
     }
 
     eat() {
-        let foods = this.chooseCell(2, 3)
-        let food = random(foods)
+        var food= super.chooseCell(1);
+		var newCell = food[Math.floor(Math.random() * food.length)]
 
-        if (food) {
+        if (newCell) {
             this.energy++
 
             let newX = food[0]
