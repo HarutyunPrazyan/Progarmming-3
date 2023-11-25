@@ -4,9 +4,8 @@ module.exports = class Predator extends LivingCreature {
         super(x, y,);
         this.energy = 10;
     } 
-	chooseCell(character) {
 
-    getNewCordinates() 
+    getNewCoordinates() {
         this.directions = [
             [this.x - 1, this.y - 1],
             [this.x, this.y - 1],
@@ -16,11 +15,13 @@ module.exports = class Predator extends LivingCreature {
             [this.x - 1, this.y + 1],
             [this.x, this.y + 1],
             [this.x + 1, this.y + 1]
-        ];
-
+            ];
     }
 
 
+	chooseCell(character) {
+        this.getNewCoordinates()
+	}
 
     move() {
 		var emptyCells = super.chooseCell(0);

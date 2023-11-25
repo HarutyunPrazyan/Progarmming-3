@@ -1,26 +1,30 @@
 
 let LivingCreature = require('./LivingCreature')
 
-module.exports = class GrassEater extends LivingCreature{
-    constructor(x, y, index){
-        super(x, y, index);
-        this.energy = 8
-    chooseCell(character)
-	getNewCoordinates()
+module.exports = class GrassEater extends LivingCreature {
+	constructor(x, y, index) {
+		super(x, y, index);
+		this.energy = 8
+
+	}
+
+	getNewCoordinates() {
 		this.directions = [
-		[this.x - 1, this.y - 1],
-		[this.x, this.y - 1],
-		[this.x + 1, this.y - 1],
-		[this.x - 1, this.y],
-		[this.x + 1, this.y],
-		[this.x - 1, this.y + 1],
-		[this.x, this.y + 1],
-		[this.x + 1, this.y + 1]
+			[this.x - 1, this.y - 1],
+			[this.x, this.y - 1],
+			[this.x + 1, this.y - 1],
+			[this.x - 1, this.y],
+			[this.x + 1, this.y],
+			[this.x - 1, this.y + 1],
+			[this.x, this.y + 1],
+			[this.x + 1, this.y + 1]
 		];
-		}
-    
-    
-    move() {
+	}
+
+	
+
+
+	move() {
 		var emptyCells = super.chooseCell(0);
 		var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
 
@@ -76,8 +80,8 @@ module.exports = class GrassEater extends LivingCreature{
 		if (newCell) {
 			var newX = newCell[0];
 			var newY = newCell[1];
-            var grEater = new GrassEater(newX, newY, 2)
-            grassEaterArr.push(grEater)
+			var grEater = new GrassEater(newX, newY, 2)
+			grassEaterArr.push(grEater)
 			this.energy = 6;
 		}
 	}

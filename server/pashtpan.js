@@ -4,9 +4,9 @@ module.exports = class Pashtpan extends LivingCreature {
         super(x, y,);
         this.energy = 10;
     } 
-	chooseCell(character) {
-		this.getNewCoordinates() 
-            this.directions = [
+
+    getNewCoordinates() {
+        this.directions = [
             [this.x - 1, this.y - 1],
             [this.x, this.y - 1],
             [this.x + 1, this.y - 1],
@@ -16,11 +16,14 @@ module.exports = class Pashtpan extends LivingCreature {
             [this.x, this.y + 1],
             [this.x + 1, this.y + 1]
             ];
+    }
+
+
+	chooseCell(character) {
+        this.getNewCoordinates()
             
             return super.chooseCell(character);
 	}
-
-
     
         mul() {
             var emptyCells = super.chooseCell(0);
@@ -48,9 +51,9 @@ module.exports = class Pashtpan extends LivingCreature {
             let newX = food[0]
             let newY = food[1]
 
-            for (let i in grassArray) {
-                if (newX == grassArray[i].x && newY == grassArray[i].y) {
-                    grassArray.splice(i, 1)
+            for (let i in grassArr) {
+                if (newX == grassArr[i].x && newY == grassArr[i].y) {
+                    grassArr.splice(i, 1)
                     break;
                 }
             }
@@ -82,8 +85,8 @@ module.exports = class Pashtpan extends LivingCreature {
 
     move() {
         this.energy--;
-        let emptyCell = this.chooseCell(0);
-        let newCell = random(emptyCell);
+        var emptyCells = super.chooseCell(0);
+		var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
 
         if (newCell) {
             let newX = newCell[0];

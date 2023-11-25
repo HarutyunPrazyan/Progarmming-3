@@ -71,9 +71,9 @@ class Predator{
                  let newX = food[0]
                  let newY = food[1]
 
-                 for(let i  in grassArray){
-                        if(newX == grassArray[i].x && newY == grassArray[i].y){
-                                    grassArray.splice(i,1)
+                 for(let i  in grassArr){
+                        if(newX == grassArr[i].x && newY == grassArr[i].y){
+                                    grassArr.splice(i,1)
                                     break;
                         }
                  }

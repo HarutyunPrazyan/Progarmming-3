@@ -1,9 +1,9 @@
 let socket = io();
-side = 30
+side = 35
 
 function setup() {
-        createCanvas(44 * side, 44 * side);
-        background("#acacac");
+        createCanvas(20 * side, 20 * side );
+        background("blue");
 }
 
 function showGame(matrix) {
@@ -27,7 +27,7 @@ function showGame(matrix) {
                                 fill("yellow");
                                 rect(x * side, y * side, side, side);
                         } else {
-                                fill("gray");
+                                fill("blue");
                                 rect(x * side, y * side, side, side);
                         }
                 }

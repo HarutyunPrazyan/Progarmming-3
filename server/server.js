@@ -67,10 +67,10 @@ function matrixGenerator(matrixSize, grassCount, grassEaterCount, predatorCount,
 }
 
 
-matrix = matrixGenerator(20,20, 8, 8, 8,);
+matrix = matrixGenerator(35,35, 8, 8, 8,);
 io.sockets.emit('send matrix', matrix)
 
-grassArray = [];
+grassArr = [];
 grassEaterArr = [];
 predatorArr = [];
 pashtpanArr = [];
@@ -87,7 +87,7 @@ function createObject(matrix) {
                         // var obj = matrix[y][x];
                         if (matrix[y][x] == 1) {
                                 let gr = new Grass(x, y)
-                                grassArray.push(gr);
+                                grassArr.push(gr);
                         } else if (matrix[y][x] == 2) {
                                 let grEat = new GrassEater(x, y)
                                 grassEaterArr.push(grEat)
@@ -105,8 +105,8 @@ function createObject(matrix) {
 }
 
 function game() {
-        for (let i in grassArray) {
-                grassArray[i].mul()
+        for (let i in grassArr) {
+                grassArr[i].mul()
         }
 
         for (let i in grassEaterArr) {
